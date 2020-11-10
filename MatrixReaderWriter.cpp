@@ -20,8 +20,8 @@ MatrixReaderWriter::MatrixReaderWriter(const char* fileName) {
 }//end MatrixReaderWriter(const char* fileName)
 
 void MatrixReaderWriter::load(const char* fileName) {
-	ifstream datafile(fileName);
-	string line;
+	std::ifstream datafile(fileName);
+	std::string line;
 	int lineCounter = 0;
 	//Count lines
 	if (datafile.is_open()) {
@@ -35,11 +35,11 @@ void MatrixReaderWriter::load(const char* fileName) {
 		datafile.close();
 	}//end if
 	else {
-		cout << "Unable to open file";
+		std::cout << "Unable to open file";
 	}
 
 	int columnCounter = 0;
-	ifstream datafile2(fileName);
+	std::ifstream datafile2(fileName);
 
 	if (datafile2.is_open()) {
 		getline(datafile2, line);
@@ -61,7 +61,7 @@ void MatrixReaderWriter::load(const char* fileName) {
 	if (data != NULL) delete[] data;
 	data = new double[rowNum * columnNum];
 
-	ifstream datafile3(fileName);
+	std::ifstream datafile3(fileName);
 
 	lineCounter = 0;
 	if (datafile3.is_open()) {
@@ -73,7 +73,7 @@ void MatrixReaderWriter::load(const char* fileName) {
 		while ((!datafile3.eof()) && (line.length() > 0)) {
 			int index = line.find_first_not_of(" ,");
 			for (int i = 0; i < columnCounter; i++) {
-				string number = line.substr(index, line.find(" ", index + 1) - index + 1);
+				std::string number = line.substr(index, line.find(" ", index + 1) - index + 1);
 				double num = strtod((char*)&number[0], NULL);
 				data[lineCounter * columnNum + i] = num;
 
@@ -90,17 +90,17 @@ void MatrixReaderWriter::load(const char* fileName) {
 } //end load(string filename)
 
 void MatrixReaderWriter::save(const char* fileName) {
-	ofstream myfile;
+	std::ofstream myfile;
 	myfile.open(fileName);
 	myfile << "#Created by C++ matrix writer.\n";
 	for (int i = 0; i < (rowNum); i++) {
 		for (int j = 0; j < columnNum; j++) {
 			myfile << data[i * columnNum + j] << " ";
 		}//end for j
-		myfile << endl;
+		myfile << std::endl;
 	}//end for i
 
-	myfile << endl;
+	myfile << std::endl;
 
 
 	myfile.close();

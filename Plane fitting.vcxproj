@@ -148,9 +148,12 @@
   <ItemGroup>
     <ClCompile Include="MatrixReaderWriter.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="RANSAC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MatrixReaderWriter.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="RANSAC.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
