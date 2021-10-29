@@ -1,8 +1,8 @@
 # ComputerVision-Plane_fitting
 
-Concatenates two images to create panorama view (can be extended into multiple images)
+Finds most fitting plane to given 3D point cloud
 
-1) Load the images and matrix containing corresponding points
-2) Estimate Homography using LO-RANSAC
-3) Concatenate the images by estimated common homography
-4) Print the panoramic image
+1) Load the 3D point cloud
+2) Estimate the most fitting plane by LO-RANSAC
+3) Color inliers by green and outlers by white
+4) Save the colored 3D point cloud into file
